@@ -38,15 +38,12 @@ Blockly.JavaScript["action"] = function(block) {
   return code;
 };
 
-Blockly.JavaScript["do"] = function(block) {
+Blockly.JavaScript["repeat"] = function(block) {
   var number_repeat = block.getFieldValue("repeat");
-  var statements_statements = Blockly.JavaScript.statementToCode(
+  var statements_commands = Blockly.JavaScript.statementToCode(
     block,
-    "statements"
+    "commands"
   );
-  var code = "";
-  for (var i = 0; i < number_repeat; i++) {
-    code += statements_statements;
-  }
+  var code = "REPEAT " + number_repeat + " TIMES {\n" + statements_commands + "}\n";
   return code;
 };
